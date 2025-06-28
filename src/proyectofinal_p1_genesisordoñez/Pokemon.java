@@ -27,6 +27,7 @@ public class Pokemon extends javax.swing.JFrame {
     private void initComponents() {
 
         label2 = new java.awt.Label();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -38,12 +39,21 @@ public class Pokemon extends javax.swing.JFrame {
         label2.setVisible(false);
         getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 207, 0, 0));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
+        jLabel3.setText("Nivel 50");
+        jLabel3.setToolTipText("");
+        jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 340, 180));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 400, 190));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 260, 180));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/6bea12ee9c7b069e8bdcf74726fdd299.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 670));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1290, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -87,6 +97,7 @@ public class Pokemon extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
 }
