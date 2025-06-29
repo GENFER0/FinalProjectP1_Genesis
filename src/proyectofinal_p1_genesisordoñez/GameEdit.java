@@ -6,6 +6,11 @@ package proyectofinal_p1_genesisordoñez;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.net.URL;
+import javax.sound.sampled.FloatControl;
 
 /**
  *
@@ -13,22 +18,41 @@ import javax.swing.JOptionPane;
  */
 public class GameEdit extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Visual
-     */
     private Pokemon gamer;//declaramos atributos en el jFrame que llaman a los campos de la clase Pokemon
     private Pokemon rival;
+    private Clip music;
+    
     public GameEdit() {
         //para hacerlo mas justo, les cambie el nivel de vida, pues en el caso de que uno tuviera menos vida que otro al iniciar, uno de ellos siempre ganaria
         initComponents();
         gamer= new Pokemon("PapuPro777",300.0,30.0,10,40);//se instancian los objetos y se mandan al constructor
         rival=new Pokemon("Robleis34",300.0,25.0,12,35);
         updateLabels();
+        startMusic();
     }
     private void updateLabels(){
         lblLifePok1.setText("PapuPro777: "+String.format("%.2f/300 HP",gamer.getPokLife()));//actualiza cuanta vida tiene el jugador despues de cada ataque, usando un printf (pero de string)
         lblLifePok2.setText("Robleis34: "+String.format("%.2f/300 HP",rival.getPokLife()));
         
+    }
+    private void startMusic(){//ese metodo es para añadir musica, lo investigue.
+        try{
+          URL url=getClass().getResource("/proyectofinal_p1_genesisordoñez/Pokémon Theme (Gotta Catch 'Em All) Instrumental.wav");  
+          AudioInputStream s=AudioSystem.getAudioInputStream(url);
+          music=AudioSystem.getClip();
+          music.open(s);
+          FloatControl gainControl=(FloatControl)music.getControl(FloatControl.Type.MASTER_GAIN);
+          gainControl.setValue(-25.0f);
+          music.loop(Clip.LOOP_CONTINUOUSLY);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+     private void stopMusic() {
+        if (music != null && music.isRunning()) {
+            music.stop();
+        }
     }
 
     /**
@@ -104,7 +128,6 @@ public class GameEdit extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 200, 200));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 240, 240));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/6bea12ee9c7b069e8bdcf74726fdd299.jpg"))); // NOI18N
@@ -152,11 +175,13 @@ public class GameEdit extends javax.swing.JFrame {
         //update de labels y comprobar quien gana
         updateLabels();
         if(rival.getPokLife()<=0){
+            stopMusic();  
             JOptionPane.showMessageDialog(this,rival.getPokName()+" ha sido debilitado\nHAS GANADO!","VICTORIA",JOptionPane.INFORMATION_MESSAGE);
-            AttackButton.setEnabled(false);//esto para que cuando termine la partida, ya no se pueda usar el boton
+            AttackButton.setEnabled(false);//esto para que cuando termine la partida, ya no se pueda usar el boton 
             return;
         }
         else if(gamer.getPokLife()<=0){
+            stopMusic();  
             JOptionPane.showMessageDialog(this,"Has sido debilitado\nGAME OVER!","DERROTA",JOptionPane.INFORMATION_MESSAGE);
             AttackButton.setEnabled(false);
             return;
