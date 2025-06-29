@@ -13,8 +13,17 @@ public class GameEdit extends javax.swing.JFrame {
     /**
      * Creates new form Visual
      */
+    private Pokemon gamer;//declaramos atributos en el jFrame que llaman a los campos de la clase Pokemon
+    private Pokemon rival;
     public GameEdit() {
         initComponents();
+        gamer= new Pokemon("PapuPro777",200.0,30.0,10,40);//se instancian los objetos y se mandan al constructor
+        rival=new Pokemon("Robleis34",300.0,25.0,12,35);
+        
+    }
+    private void updateLabels(){
+        lblLifePok1.setText("Vida de PapuPro777: "+String.format("%.2f",gamer.getPokLife()));//actualiza cuanta vida tiene el jugador despues de cada ataque, usando un printf (pero de string)
+        lblLifePok2.setText("Vida de Robleis34: "+String.format("%2.f",rival.getPokLife()));
     }
 
     /**
@@ -27,8 +36,8 @@ public class GameEdit extends javax.swing.JFrame {
     private void initComponents() {
 
         label2 = new java.awt.Label();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblLifePok1 = new javax.swing.JLabel();
+        lblLifePok2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,17 +48,20 @@ public class GameEdit extends javax.swing.JFrame {
         label2.setVisible(false);
         getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 207, 0, 0));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 204));
-        jLabel3.setForeground(new java.awt.Color(255, 255, 204));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
-        jLabel3.setText("Nivel 50");
-        jLabel3.setToolTipText("");
-        jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 340, 180));
+        lblLifePok1.setBackground(new java.awt.Color(255, 255, 204));
+        lblLifePok1.setForeground(new java.awt.Color(255, 255, 204));
+        lblLifePok1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
+        lblLifePok1.setText("Nivel 50");
+        lblLifePok1.setToolTipText("");
+        lblLifePok1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        lblLifePok1.setName("lblLifePok1"); // NOI18N
+        getContentPane().add(lblLifePok1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 340, 180));
+        lblLifePok1.getAccessibleContext().setAccessibleName("lblLifePok1");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 220, 260, 180));
+        lblLifePok2.setForeground(new java.awt.Color(0, 0, 0));
+        lblLifePok2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/57ffd264f64ff502c5cc3bf8c7177bdc-removebg-preview.png"))); // NOI18N
+        lblLifePok2.setText("Nivel 50");
+        getContentPane().add(lblLifePok2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, 320, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/6bea12ee9c7b069e8bdcf74726fdd299.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -98,8 +110,8 @@ public class GameEdit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private java.awt.Label label2;
+    private javax.swing.JLabel lblLifePok1;
+    private javax.swing.JLabel lblLifePok2;
     // End of variables declaration//GEN-END:variables
 }
