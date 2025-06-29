@@ -19,14 +19,15 @@ public class GameEdit extends javax.swing.JFrame {
     private Pokemon gamer;//declaramos atributos en el jFrame que llaman a los campos de la clase Pokemon
     private Pokemon rival;
     public GameEdit() {
+        //para hacerlo mas justo, les cambie el nivel de vida, pues en el caso de que uno tuviera menos vida que otro al iniciar, uno de ellos siempre ganaria
         initComponents();
-        gamer= new Pokemon("PapuPro777",200.0,30.0,10,40);//se instancian los objetos y se mandan al constructor
+        gamer= new Pokemon("PapuPro777",300.0,30.0,10,40);//se instancian los objetos y se mandan al constructor
         rival=new Pokemon("Robleis34",300.0,25.0,12,35);
         updateLabels();
     }
     private void updateLabels(){
         lblLifePok1.setText("PapuPro777: "+String.format("%.2f/300 HP",gamer.getPokLife()));//actualiza cuanta vida tiene el jugador despues de cada ataque, usando un printf (pero de string)
-        lblLifePok2.setText("Robleis34: "+String.format("%.2f/200 HP",rival.getPokLife()));
+        lblLifePok2.setText("Robleis34: "+String.format("%.2f/300 HP",rival.getPokLife()));
         
     }
 
@@ -40,28 +41,24 @@ public class GameEdit extends javax.swing.JFrame {
     private void initComponents() {
 
         label2 = new java.awt.Label();
-        lblLifePok1 = new javax.swing.JLabel();
         AttackButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         lblLifePok2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblLifePok1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("POKEMON BATTLE");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFocusable(false);
         setForeground(new java.awt.Color(255, 80, 91));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         label2.setVisible(false);
         getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 207, 0, 0));
-
-        lblLifePok1.setBackground(new java.awt.Color(255, 255, 204));
-        lblLifePok1.setForeground(new java.awt.Color(255, 255, 204));
-        lblLifePok1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
-        lblLifePok1.setText("Nivel 50");
-        lblLifePok1.setToolTipText("");
-        lblLifePok1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        lblLifePok1.setName("lblLifePok1"); // NOI18N
-        getContentPane().add(lblLifePok1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 460, 380, 180));
-        lblLifePok1.getAccessibleContext().setAccessibleName("lblLifePok1");
 
         AttackButton.setBackground(new java.awt.Color(255, 255, 204));
         AttackButton.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
@@ -72,12 +69,43 @@ public class GameEdit extends javax.swing.JFrame {
                 AttackButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(AttackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 530, 140, 50));
+        getContentPane().add(AttackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 540, 140, 50));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Level 50");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 70, 30));
+
+        lblLifePok2.setBackground(new java.awt.Color(51, 102, 255));
+        lblLifePok2.setFont(new java.awt.Font("Arial Narrow", 3, 14)); // NOI18N
         lblLifePok2.setForeground(new java.awt.Color(0, 0, 0));
         lblLifePok2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/57ffd264f64ff502c5cc3bf8c7177bdc-removebg-preview.png"))); // NOI18N
-        lblLifePok2.setText("Nivel 50");
+        lblLifePok2.setOpaque(true);
         getContentPane().add(lblLifePok2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 430, 200));
+
+        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Level 50");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 60, 30));
+
+        lblLifePok1.setBackground(new java.awt.Color(255, 255, 204));
+        lblLifePok1.setFont(new java.awt.Font("Arial Narrow", 3, 14)); // NOI18N
+        lblLifePok1.setForeground(new java.awt.Color(0, 0, 0));
+        lblLifePok1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
+        lblLifePok1.setToolTipText("");
+        lblLifePok1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        lblLifePok1.setName("lblLifePok1"); // NOI18N
+        lblLifePok1.setOpaque(true);
+        getContentPane().add(lblLifePok1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 410, 180));
+        lblLifePok1.getAccessibleContext().setAccessibleName("lblLifePok1");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/57ffd264f64ff502c5cc3bf8c7177bdc-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 200, 200));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 240, 240));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/6bea12ee9c7b069e8bdcf74726fdd299.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -101,22 +129,13 @@ public class GameEdit extends javax.swing.JFrame {
         }
         
         //Calculo de danos
-        double dan=(0.5*gamer.getPokLevel()*gamer.getPokAttack())/rival.getPokDefender();
+        double dan=((2*gamer.getPokLevel()+10)/250.0)*(gamer.getPokAttack()/(double)rival.getPokDefender())*(40+2);
         dan*=modify;
-        JOptionPane.showMessageDialog(this,"Le ha hecho!","CRITICO!",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Ha hecho un "+dan+" of damage a su enemigo","BONUS!",JOptionPane.PLAIN_MESSAGE);
         rival.setPokLife(rival.getPokLife()-dan);
         
-        
-        //update de labels y comprobar quien gana
-        updateLabels();
-        if(rival.getPokLife()<=0){
-            JOptionPane.showMessageDialog(this,rival.getPokName()+" ha sido debilitado, HAS GANADO!","VICTORIA",JOptionPane.INFORMATION_MESSAGE);
-            AttackButton.setEnabled(false);
-            return;
-        }
-        
-        //El turno del rival
-        JOptionPane.showMessageDialog(this,"Turno de "+rival.getPokName(),"Rival Turno", JOptionPane.PLAIN_MESSAGE);
+         //El turno del rival
+        JOptionPane.showMessageDialog(this,"Turno de "+rival.getPokName(),"Rival Turno", JOptionPane.INFORMATION_MESSAGE);
         int num2=1+queso.nextInt(100);
         if(num2%2==0){
             modify=2;
@@ -125,15 +144,26 @@ public class GameEdit extends javax.swing.JFrame {
         else{
             modify=1;
         }
-        double danR=(0.5*rival.getPokLevel()*rival.getPokAttack())/gamer.getPokDefender();
+        double danR=((2*rival.getPokLevel()+10)/250.0)*(rival.getPokAttack()/(double)gamer.getPokDefender())*(40+2);
         danR*=modify;
+        JOptionPane.showMessageDialog(this,"Te han hecho "+danR+" of damage :(","PIPIPI!",JOptionPane.PLAIN_MESSAGE);
         gamer.setPokLife(gamer.getPokLife()-danR);
+        
+        //update de labels y comprobar quien gana
         updateLabels();
-        if(gamer.getPokLife()<=0){
-            JOptionPane.showMessageDialog(this,"Has sido debilitado, GAME OVER!","DERROTA",JOptionPane.INFORMATION_MESSAGE);
+        if(rival.getPokLife()<=0){
+            JOptionPane.showMessageDialog(this,rival.getPokName()+" ha sido debilitado\nHAS GANADO!","VICTORIA",JOptionPane.INFORMATION_MESSAGE);
+            AttackButton.setEnabled(false);//esto para que cuando termine la partida, ya no se pueda usar el boton
+            return;
+        }
+        else if(gamer.getPokLife()<=0){
+            JOptionPane.showMessageDialog(this,"Has sido debilitado\nGAME OVER!","DERROTA",JOptionPane.INFORMATION_MESSAGE);
             AttackButton.setEnabled(false);
             return;
         }
+        
+       
+
         
     }//GEN-LAST:event_AttackButtonActionPerformed
 
@@ -178,6 +208,10 @@ public class GameEdit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AttackButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private java.awt.Label label2;
     private javax.swing.JLabel lblLifePok1;
     private javax.swing.JLabel lblLifePok2;
