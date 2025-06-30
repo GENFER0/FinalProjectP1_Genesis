@@ -25,9 +25,12 @@ public class GameEdit extends javax.swing.JFrame {
     public GameEdit() {
         //para hacerlo mas justo, les cambie el nivel de vida, pues en el caso de que uno tuviera menos vida que otro al iniciar, uno de ellos siempre ganaria
         initComponents();
-        AttackButton.setOpaque(false);
-        AttackButton.setContentAreaFilled(false);
-        AttackButton.setBorderPainted(false);
+        //boton
+        AttackButton.setOpaque(false);//pone el button transparente, no backgrounds
+        AttackButton.setContentAreaFilled(false);//no dibuja siluetas debajo del boton
+        AttackButton.setBorderPainted(false);//quita bordes
+        AttackButton.setFocusPainted(false);//quita ek marco de enfoque
+        
         gamer= new Pokemon("PapuPro777",300.0,30.0,10,40);//se instancian los objetos y se mandan al constructor
         rival=new Pokemon("Robleis34",300.0,25.0,12,35);
         updateLabels();
@@ -75,6 +78,8 @@ public class GameEdit extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,38 +102,42 @@ public class GameEdit extends javax.swing.JFrame {
                 AttackButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(AttackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 570, 200, 70));
+        getContentPane().add(AttackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 580, 180, 60));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Level 50");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 70, 30));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/imagen_2025-06-30_151422214-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 60));
 
         lblLifePok2.setBackground(new java.awt.Color(51, 102, 255));
         lblLifePok2.setFont(new java.awt.Font("Consolas", 3, 14)); // NOI18N
         lblLifePok2.setForeground(new java.awt.Color(0, 0, 0));
-        lblLifePok2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/57ffd264f64ff502c5cc3bf8c7177bdc-removebg-preview.png"))); // NOI18N
-        getContentPane().add(lblLifePok2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 510, 190));
+        getContentPane().add(lblLifePok2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 270, 50));
 
-        lblLifePok1.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
+        lblLifePok1.setFont(new java.awt.Font("Consolas", 3, 14)); // NOI18N
         lblLifePok1.setForeground(new java.awt.Color(60, 63, 65));
         lblLifePok1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLifePok1.setLabelFor(lblLifePok1);
-        lblLifePok1.setText("j");
         lblLifePok1.setToolTipText("");
         lblLifePok1.setName("lblLifePok1"); // NOI18N
-        getContentPane().add(lblLifePok1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 260, 110));
+        getContentPane().add(lblLifePok1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 280, 60));
         lblLifePok1.getAccessibleContext().setAccessibleName("lblLifePok1");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/57ffd264f64ff502c5cc3bf8c7177bdc-removebg-preview.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 200, 200));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/imagen_2025-06-30_151209499-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 440, 90, 80));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/e1ff5427ae685c0943fb289f76e0ed17-removebg-preview.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 240, 240));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/imagen_2025-06-30_150152889-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 410, 290));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/ChatGPT_Image_30_jun_2025__02_16_09_p.m.-removebg-preview-removebg-preview.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, 480, 180));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/imagen_2025-06-30_150559350-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 440, 430));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/ChatGPT_Image_30_jun_2025__02_16_09_p.m.-removebg-preview-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 480, 180));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectofinal_p1_genesisordoñez/ChatGPT Image 30 jun 2025, 02_09_38 p.m..jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 680));
@@ -236,6 +245,8 @@ public class GameEdit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private java.awt.Label label2;
     private javax.swing.JLabel lblLifePok1;
     private javax.swing.JLabel lblLifePok2;
