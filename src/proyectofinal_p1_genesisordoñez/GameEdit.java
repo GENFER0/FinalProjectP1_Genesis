@@ -43,12 +43,12 @@ public class GameEdit extends javax.swing.JFrame {
     }
     private void startMusic(){//ese metodo es para añadir musica, lo investigue.
         try{
-          URL url=getClass().getResource("/proyectofinal_p1_genesisordoñez/Pokémon Theme (Gotta Catch 'Em All) Instrumental.wav");  
+          URL url=getClass().getResource("/proyectofinal_p1_genesisordoñez//Linkin Park - In the End (Lyrics).wav/");  //ruta de acceso de donde se encuentra el .wav de la cancion
           AudioInputStream s=AudioSystem.getAudioInputStream(url);
           music=AudioSystem.getClip();
           music.open(s);
           FloatControl gainControl=(FloatControl)music.getControl(FloatControl.Type.MASTER_GAIN);
-          gainControl.setValue(-25.0f);
+          gainControl.setValue(-25.0f);//baja el volumen
           music.loop(Clip.LOOP_CONTINUOUSLY);
         }
         catch(Exception e){
